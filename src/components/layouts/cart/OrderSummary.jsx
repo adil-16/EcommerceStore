@@ -1,0 +1,113 @@
+import RoundedButton from "@/components/buttons/RoundedButton";
+import PromoField from "@/components/fields/PromoField";
+import Image from "next/image";
+import React from "react";
+
+const banks = [
+  "/images/bkash.png",
+  "/images/visa.png",
+  "/images/master.png",
+  "/images/nagad.png",
+];
+
+const OrderSummary = ({ step, setStep }) => {
+  const [payment, setPayment] = React.useState(0);
+
+  const handleButton = () => {
+    if (step === 1) {
+      setStep(2);
+    } else {
+      setStep(1);
+    }
+  };
+  return (
+    <div className="flex flex-col py-5 px-6 md:w-[43%] w-full rounded-[20px] border border-black border-opacity-10 gap-y-6 h-fit">
+      <h2 className="font-bold text-2xl">Order Summary</h2>
+
+      <div className="flex flex-col gap-y-5 w-full">
+        <div className="flex flex-row items-center justify-between">
+          <p className="opacity-60 text-lg">Subtotal</p>
+          <p className="font-bold text-lg">$565</p>
+        </div>
+        <div className="flex flex-row items-center justify-between">
+          <p className="opacity-60 text-lg">Discount (-20%)</p>
+          <p className="font-bold text-lg text-redColor">-$565</p>
+        </div>
+        <div className="flex flex-row items-center justify-between border-b border-b-black border-opacity-10 pb-5">
+          <p className="opacity-60 text-lg">Delivery Fee</p>
+          <p className="font-bold text-lg">$565</p>
+        </div>
+        <div className="flex flex-row items-center justify-between ">
+          <p className="text-xl">Total</p>
+          <p className="font-bold text-2xl">$467</p>
+        </div>
+      </div>
+
+      <div className="flex flex-row gap-x-3">
+        <PromoField />
+
+        <div className="w-[30%]">
+          <RoundedButton
+            label="Apply"
+            className=" bg-black border-black text-white font-medium px-6 py-3.5"
+          />
+        </div>
+      </div>
+
+      {step === 2 && (
+        <div className="flex flex-col gap-y-6">
+          <p>Choose Payment Method</p>
+          <div
+            onClick={() => setPayment(0)}
+            className="flex flex-row items-center justify-between cursor-pointer"
+          >
+            <div className=" flex flex-row items-center gap-x-4">
+              <div className="w-6 h-6 bgtra rounded-full border-2 border-black flex justify-center items-center">
+                {payment == 0 && (
+                  <div className="min-w-3.5 min-h-3.5 rounded-full bg-black"></div>
+                )}
+              </div>
+
+              <p>Bank</p>
+            </div>
+            {/* Banks  */}
+
+            <div className="flex flex-row gap-x-2">
+              {banks.map((bank, index) => (
+                <div
+                  key={index}
+                  className="flex w-[42px] h-[28px] justify-center items-center"
+                >
+                  <Image src={bank} width={38} height={11} alt="banks"/>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div
+            onClick={() => setPayment(1)}
+            className="flex flex-row items-center justify-between cursor-pointer"
+          >
+            <div className=" flex flex-row items-center gap-x-4">
+              <div className="w-6 h-6 bgtra rounded-full border-2 border-black flex justify-center items-center">
+                {payment == 1 && (
+                  <div className="min-w-3.5 min-h-3.5 rounded-full bg-black"></div>
+                )}
+              </div>
+
+              <p>Cash on delivery</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <RoundedButton
+        onClick={handleButton}
+        // label="Go to Checkout"
+        label={step === 1 ? "Go to Checkout" : "Place Order"}
+        className=" bg-primary border-primary text-white font-medium px-6 py-3.5"
+      />
+    </div>
+  );
+};
+
+export default OrderSummary;

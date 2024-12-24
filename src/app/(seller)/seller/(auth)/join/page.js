@@ -1,0 +1,62 @@
+"use client";
+import React, { useState } from "react";
+import { whiteLoader } from "@/svgs"; // Import your loader SVG
+import { useRouter } from "next/navigation";
+
+const Page = () => {
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
+
+  const navigateToPasswordScreen = () => {
+    router.push("/seller/setup-password");
+  };
+
+  return (
+    <div className="mx-auto p-5 lg:px-16 flex flex-col gap-5">
+      <img className="w-[160px] h-[60px]" src="/images/logo.png" />
+      <h3 className="text-3xl font-bold">Admin Invitation to Create Account</h3>
+      <p className="text-grayDark text-lg">
+        You`&apos;ve received a request from the admin to create your seller
+        account. Please fill in the necessary details below.
+      </p>
+      <hr className="border-grayLight" />
+      <p className="text-2xl font-semibold text-grayMid">Referred by:</p>
+      <div className="flex items-center gap-3">
+        <img
+          className="w-[50px] h-[50px] rounded-full"
+          src="/images/profile-avatar.jpeg"
+          alt="User Profile Avatar"
+        />
+        <p className="font-semibold text-2xl">Harry Kane</p>
+      </div>
+      <p className="text-grayDark text-lg">
+        Please complete the form below to setup your seller account. This
+        request was initiated by John Doe.
+      </p>
+      <div className="flex flex-col gap-3">
+        <div className="w-full flex flex-col gap-2">
+          <label className="font-medium">Your Email</label>
+          <input
+            type="email"
+            className="placeholder:font-medium w-full rounded-md border bg-whiteOne border-gray-200 py-3 px-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+            placeholder="Email"
+            name="email"
+          />
+        </div>
+      </div>
+
+      <button
+        onClick={navigateToPasswordScreen}
+        className="flex justify-center transform active:translate-y-1 transition-all shadow-buttonShadow bg-primary text-white font-semibold py-2 rounded hover:bg-primaryHover gap-2 lg:w-[100%] relative"
+        // disabled={loading}
+      >
+        {loading && <div className="animate-spin">{whiteLoader}</div>}
+        {!loading && "Proceed to Account Creation"}{" "}
+        {/* Show "Login" text only when not loading */}
+      </button>
+    </div>
+  );
+};
+
+export default Page;
