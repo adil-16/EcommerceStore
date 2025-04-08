@@ -1,17 +1,28 @@
 "use client";
 import RoundedButton from "@/components/buttons/RoundedButton";
-import React from "react";
+import React, { useEffect } from "react";
 import WishlistProducts from "./WishlistProducts";
 import { wishlistIcon } from "@/utils/Svgs";
+import { useSelector } from "react-redux";
 
 const WishlistWrapper = () => {
   const [count, setCount] = React.useState(0);
+  const products = useSelector((state) => state.product.products);
+
+  useEffect(() => {
+    const favoriteProductsCount = products.filter(
+      (product) => product.isFav
+    ).length;
+    setCount(favoriteProductsCount);
+  }, [products]);
+
   return (
     <div className="pt-28 lg:px-[100px] md:px-8 px-4 w-full flex flex-col">
       {/* Header */}
       <div className="flex flex-row justify-between gap-x-1 items-center w-full">
         <h1 className="text-[40px] font-bold">
-          Wishlist <span className="text-base font-normal opacity-60">(6)</span>
+          Wishlist{" "}
+          <span className="text-base font-normal opacity-60">({count})</span>
         </h1>
         <div className="w-[223px]">
           <RoundedButton

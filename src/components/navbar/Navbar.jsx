@@ -23,7 +23,7 @@ const Navbar = () => {
   }, [open]);
 
   return (
-    <div className="fixed top-0 bg-white z-50 flex flex-row w-full lg:px-[100px] md:px-8 px-4 pt-4 pb-3 items-center lg:gap-x-10 md:gap-x-7 gap-x-4 justify-between truncate">
+    <div className="fixed top-0 bg-white z-50 flex flex-row w-full lg:px-[100px] md:px-8 px-4 pt-4 pb-3 items-center lg:gap-x-10 md:gap-x-7 gap-x-4 justify-between whitespace-nowrap">
       {/* Hamburger */}
 
       {/* logo */}

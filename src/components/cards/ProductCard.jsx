@@ -63,7 +63,7 @@ const ProductCard = ({ product }) => {
             onClick={(e) => e.preventDefault()}
             className="absolute top-2 right-2"
           >
-            <AddFav />
+            <AddFav product={product} />
           </div>
         )}
       </div>

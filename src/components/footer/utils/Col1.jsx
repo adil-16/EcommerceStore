@@ -7,7 +7,7 @@ const Col1 = () => {
   return (
     <div className="flex flex-col sm:min-w-[248px] sm:w-[248px] w-full">
       <Image
-        src="/images/logo3.jpg"
+        src="/images/logo.png"
         style={{
           width: "130px",
           height: "auto",

@@ -4,11 +4,13 @@ import EmailField from "../fields/EmailField";
 import PasswordField from "../fields/PasswordField";
 import Link from "next/link";
 import CommonButton from "../buttons/CommonButton";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [loading, setLoading] = React.useState(false);
+  const router = useRouter();
 
   return (
     <div className="flex flex-col mt-5 gap-y-4">
@@ -38,6 +40,9 @@ const LoginForm = () => {
       </div>
 
       <CommonButton
+        onClick={() => {
+          router.push("/");
+        }}
         type="submit"
         label="Log In"
         className="py-3 text-base "

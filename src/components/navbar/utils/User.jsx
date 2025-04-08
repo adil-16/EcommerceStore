@@ -7,8 +7,13 @@ import {
 } from "@headlessui/react";
 import Image from "next/image";
 import React, { Fragment } from "react";
+import { useRouter } from "next/navigation";
 
 const User = () => {
+  const router = useRouter();
+  const handleLogout = () => {
+    router.push("/login");
+  };
   return (
     <Popover className="relative">
       {({ open }) => (
@@ -51,8 +56,8 @@ const User = () => {
               </a>
 
               <a
-                className="flex flex-row gap-x-4 text-errorColor"
-                href="/login"
+                className="flex flex-row gap-x-4 text-errorColor cursor-pointer"
+                onClick={handleLogout}
               >
                 <div className="w-7 h-7 flex justify-center items-center ">
                   {logoutIcon}

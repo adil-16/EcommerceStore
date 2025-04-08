@@ -12,6 +12,15 @@ const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
+    toggleFavorite: (state, action) => {
+      // console.log(action.payload);
+
+      const productId = action.payload;
+      const product = state.products.find((p) => p.id === productId);
+      if (product) {
+        product.isFav = !product.isFav;
+      }
+    },
     // Get product by ID
     getProductById: (state, action) => {
       const productId = Number(action.payload);
@@ -138,6 +147,7 @@ export const {
   placeOrder,
   removeOrder,
   clearCart,
+  toggleFavorite,
 } = productSlice.actions;
 
 // Export reducer
