@@ -3,7 +3,7 @@ import CartWrapper from "@/components/layouts/cart/CartWrapper";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { slug } = params;
   const cart = useSelector((state) => state.product.cart);
 
@@ -18,4 +18,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

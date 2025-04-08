@@ -8,7 +8,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "@/store/slices/productSlice";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { slug } = React.use(params);
   const dispatch = useDispatch();
 
@@ -33,4 +33,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;
