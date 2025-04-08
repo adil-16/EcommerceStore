@@ -5,6 +5,7 @@ import Header from "./utils/Header";
 import ProductCard from "@/components/cards/ProductCard";
 import FilterModal from "./FilterModal";
 import Pagination from "./Pagination";
+import { products } from "@/utils/products";
 
 const ProductList = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,23 +22,9 @@ const ProductList = () => {
       <Header openModal={() => setIsOpen(true)} />
 
       <div className="flex flex-row w-full flex-wrap gap-x-6 justify-start gap-y-6">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products.map((product) => (
+          <ProductCard key={product?.id} product={product} />
+        ))}
       </div>
 
       <Pagination

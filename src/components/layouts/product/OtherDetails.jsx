@@ -6,7 +6,7 @@ import ReviewTab from "./utils/ReviewTab";
 import ReturnTab from "./utils/ReturnTab";
 import ProductsWrappers from "../homepage/ProductsWrappers";
 
-const OtherDetails = () => {
+const OtherDetails = ({ product }) => {
   const [selectedTab, setSelectedTab] = React.useState(0);
   return (
     <div className="w-full sm:mt-20 mt-12">
@@ -14,7 +14,7 @@ const OtherDetails = () => {
 
       {selectedTab === 0 && <DetailTab />}
 
-      {selectedTab === 1 && <ReviewTab />}
+      {selectedTab === 1 && <ReviewTab product={product} />}
 
       {selectedTab === 2 && <ReturnTab />}
 

@@ -1,6 +1,7 @@
 import { closeNavIcon, navNextIcon } from "@/utils/Svgs";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const MobileNav = ({ setOpen }) => {
   return (
@@ -29,13 +30,23 @@ const MobileNav = ({ setOpen }) => {
 
       <div className="flex flex-col items-center gap-y-8 mt-16">
         <div className="flex flex-row items-center gap-x-3 flex-nowrap">
-          <p className="sm:text-3xl font-medium text-3xl">New Arrivals</p>
-          {navNextIcon}
+          <Link
+            href="/new-arrival"
+            className="flex items-center gap-x-3 flex-nowrap"
+          >
+            <p className="sm:text-3xl font-medium text-3xl">New Arrivals</p>
+            {navNextIcon}
+          </Link>
         </div>
 
         <div className="flex flex-row items-center gap-x-3 flex-nowrap">
-          <p className="sm:text-3xl font-medium text-3xl">Brands</p>
-          {navNextIcon}
+          <Link
+            href="/brands"
+            className="flex items-center gap-x-3 flex-nowrap"
+          >
+            <p className="sm:text-3xl font-medium text-3xl">Brands</p>
+            {navNextIcon}
+          </Link>
         </div>
       </div>
     </div>

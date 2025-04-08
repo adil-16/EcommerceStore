@@ -3,6 +3,7 @@ import AddProductDrawer from "@/components/drawers/seller/addProduct/AddProductD
 import ProductCard from "@/components/sections/seller/products/ProductCard";
 import { addProductIcon } from "@/svgs";
 import React, { useState } from "react";
+import { products } from "@/utils/products";
 
 const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,18 +28,9 @@ const Page = () => {
         <h1 className="text-2xl font-bold my-5">Add Product</h1>
         <hr className="border-grayLight p-5" />
         <div className="grid grid-cols-[repeat(auto-fill,_minmax(190px,_1fr))] gap-4">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products.map((product) => (
+            <ProductCard key={product?.id} product={product} />
+          ))}
         </div>
       </div>
 

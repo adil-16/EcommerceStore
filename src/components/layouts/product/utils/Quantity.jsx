@@ -2,8 +2,7 @@
 import { decreaseIcon, increaseIcon } from "@/utils/Svgs";
 import React from "react";
 
-const Quantity = () => {
-  const [quantity, setQuantity] = React.useState(1);
+const Quantity = ({ quantity, setQuantity }) => {
   return (
     <div className="flex flex-row py-3.5 px-5 rounded-full bg-searchBarBg lg:w-[25%] sm:w-[30%] w-[38%] gap-x-2 flex-nowrap justify-between items-center">
       <div

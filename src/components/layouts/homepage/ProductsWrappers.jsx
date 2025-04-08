@@ -2,6 +2,7 @@ import ProductCard from "@/components/cards/ProductCard";
 import React from "react";
 import ProductsSlider from "./utils/ProductsSlider";
 import RoundedButton from "@/components/buttons/RoundedButton";
+import { products } from "@/utils/products";
 
 const ProductsWrappers = ({ title, viewAll }) => {
   return (
@@ -11,10 +12,9 @@ const ProductsWrappers = ({ title, viewAll }) => {
       </div>
 
       <div className="hidden md:flex flex-row flex-wrap gap-x-1 lg:justify-between justify-start">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products.map((product) => (
+          <ProductCard key={product?.id} product={product} />
+        ))}
       </div>
       <div className="block md:hidden overflow-hidden">
         <ProductsSlider />

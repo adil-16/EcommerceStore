@@ -12,13 +12,11 @@ const Login3 = "/images/login-3.png";
 const importedImages = [Login1, Login2, Login3];
 
 export const metadata = {
-  title: "Afriva",
+  title: "Shop Online",
   description: "FIND CLOTHES THAT MATCHES YOUR STYLE",
 };
 
 export default function RootLayout({ children }) {
-
-  
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>

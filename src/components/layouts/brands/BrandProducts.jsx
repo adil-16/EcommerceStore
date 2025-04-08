@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import ProductCard from "@/components/cards/ProductCard";
+import { products } from "@/utils/products";
 
 const BrandProducts = () => {
   var settings = {
@@ -45,21 +46,9 @@ const BrandProducts = () => {
   };
   return (
     <Slider {...settings} id="slider-3">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products.map((product) => (
+        <ProductCard key={product?.id} product={product} />
+      ))}
     </Slider>
   );
 };

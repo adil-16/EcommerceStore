@@ -7,7 +7,10 @@ const Logo = ({ open, setOpen }) => {
   return (
     <>
       <Hamburger open={open} setOpen={setOpen} />
-      <Link href="/" className="w-[120px] sm:w-[161px] md:w-[170px] lg:w-[200px] gap-x-4 flex flex-row items-center">
+      <Link
+        href="/"
+        className="w-[120px] sm:w-[161px] md:w-[170px] lg:w-[200px] gap-x-4 flex flex-row items-center"
+      >
         <Image
           layout="responsive"
           src="/images/logo.png"

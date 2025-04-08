@@ -7,7 +7,7 @@ import GiveReview from "./GiveReview";
 import ReviewCard from "../../homepage/utils/ReviewCard";
 import ProductsWrappers from "../../homepage/ProductsWrappers";
 
-const ReviewTab = () => {
+const ReviewTab = ({ product }) => {
   const [openModal, setOpenModal] = React.useState(false);
   return (
     <div className="w-full flex flex-col sm:mt-7 mt-9 ">
@@ -28,12 +28,14 @@ const ReviewTab = () => {
       </div>
       {/* grid for 2 col and on mobile 1 col */}
       <div className="grid grid-cols-1 gap-4 sm:mt-7 mt-5 sm:grid-cols-2">
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
+        {product.reviews.map((review, index) => (
+          <ReviewCard
+            key={index}
+            user={review.user}
+            comment={review.comment}
+            rating={review.rating}
+          />
+        ))}
       </div>
 
       <div className="w-full flex justify-center sm:mt-11 mt-5 sm:mb-16 mb-12">

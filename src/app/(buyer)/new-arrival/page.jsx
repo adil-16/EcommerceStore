@@ -2,6 +2,7 @@ import RoundedButton from "@/components/buttons/RoundedButton";
 import ProductCard from "@/components/cards/ProductCard";
 import Browse from "@/components/layouts/homepage/Browse";
 import React from "react";
+import { products } from "@/utils/products";
 
 const page = () => {
   return (
@@ -13,23 +14,9 @@ const page = () => {
         </div>
 
         <div className="flex flex-row w-full flex-wrap gap-x-6 justify-start gap-y-6">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products.map((product) => (
+            <ProductCard key={product?.id} product={product} />
+          ))}
         </div>
 
         <RoundedButton
