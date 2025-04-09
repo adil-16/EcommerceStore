@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
 
       {/* Brands */}
-      <Brands />
+      {/* <Brands /> */}
 
       {/* new Arrival */}
       <ProductsWrappers title={"NEW ARRIVALS"} viewAll={true} />

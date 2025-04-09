@@ -4,6 +4,7 @@ const UpdatePassword = () => {
   const [updatePassword, setUpdatePassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [restricted, setRestricted] = useState(false);
 
   return (
@@ -53,8 +54,8 @@ const UpdatePassword = () => {
               <input
                 type="password"
                 placeholder="⚉ ⚉ ⚉ ⚉ ⚉ ⚉ ⚉ ⚉"
-                value={oldPassword}
-                onChange={(e) => setOldPassword(e.target.value)}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
                 className="h-[38px] w-full rounded-[5px] border border-[#B9B9C3] bg-backgroundSecondary py-[8px] pl-[15px] pr-[10px] disabled:bg-grayOne"
               />
             </div>

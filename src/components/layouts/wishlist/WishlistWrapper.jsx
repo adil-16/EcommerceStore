@@ -4,9 +4,11 @@ import React, { useEffect } from "react";
 import WishlistProducts from "./WishlistProducts";
 import { wishlistIcon } from "@/utils/Svgs";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 
 const WishlistWrapper = () => {
   const [count, setCount] = React.useState(0);
+  const router = useRouter();
   const products = useSelector((state) => state.product.products);
 
   useEffect(() => {
@@ -46,6 +48,7 @@ const WishlistWrapper = () => {
             </p>
 
             <RoundedButton
+              onClick={() => router.push("/new-arrival")}
               label="Shop Now"
               className=" bg-primary border-primary text-white font-medium w-full px-6 py-3.5 mt-11"
             />

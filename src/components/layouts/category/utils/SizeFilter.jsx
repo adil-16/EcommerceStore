@@ -5,7 +5,7 @@ import { catNextIcon } from "@/utils/Svgs";
 
 // remove with the api data of the product
 const sizes = ["X-Small ", "Small", "Medium", "Large", "X-Large", "XX-Large"];
-const SizeFilter = () => {
+const SizeFilter = ({ selectedSize, setSelectedSize }) => {
   const [show, setShow] = React.useState(true);
   const [selected, setSelected] = React.useState(sizes[0]);
   return (
@@ -23,9 +23,9 @@ const SizeFilter = () => {
           {sizes.map((size, index) => (
             <div
               key={index}
-              onClick={() => setSelected(size)}
+              onClick={() => setSelectedSize(size)}
               className={`flex justify-center items-center sm:px-5 px-4 sm:py-2.5 py-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${
-                selected === size
+                selectedSize === size
                   ? "bg-brandsbg text-white"
                   : "bg-searchBarBg text-black text-opacity-60"
               }`}

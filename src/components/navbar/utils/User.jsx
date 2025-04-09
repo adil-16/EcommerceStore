@@ -14,6 +14,9 @@ const User = () => {
   const handleLogout = () => {
     router.push("/login");
   };
+  const handleProfile = () => {
+    router.push("/profile");
+  };
   return (
     <Popover className="relative">
       {({ open }) => (
@@ -44,7 +47,10 @@ const User = () => {
               anchor="bottom end"
               className="mt-2 w-44 bg-white drop-shadow-lg px-4 py-3 rounded-lg min-w-[224px] flex flex-col gap-y-4 z-50"
             >
-              <a className="flex flex-row gap-x-4" href="/profile">
+              <a
+                className="flex flex-row gap-x-4 cursor-pointer"
+                onClick={handleProfile}
+              >
                 <Image
                   src="/images/user.png"
                   alt="user"

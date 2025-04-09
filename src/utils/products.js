@@ -12,8 +12,8 @@ export const products = [
     price: 19.99,
     brandName: "FashionMax",
     description: "Soft and breathable cotton t-shirt for casual wear.",
-    colors: ["#4F4631", "#314F4A", "#31344F"],
-    sizes: ["S", "M", "L", "XL"],
+    colors: ["Yellow", "Purple", "Gray"],
+    sizes: ["Small", "X-Small", "Large", "X-Large"],
     quantity: 1,
     reviews: [
       {
@@ -57,8 +57,8 @@ export const products = [
     price: 39.99,
     brandName: "DenimStyle",
     description: "Stylish slim fit jeans with stretchable fabric.",
-    colors: ["#4F4631", "#314F4A", "#31344F"],
-    sizes: ["M", "L", "XL"],
+    colors: ["Orange", "Black", "Pink", "White"],
+    sizes: ["Medium", "Large", "X-Large"],
     quantity: 1,
     reviews: [
       {
@@ -77,8 +77,8 @@ export const products = [
     price: 29.99,
     brandName: "ShadeX",
     description: "UV protection polarized sunglasses for men and women.",
-    colors: ["Black", "Brown", "Gray"],
-    sizes: ["M", "L"],
+    colors: ["Black", "White", "Gray"],
+    sizes: ["Medium", "Large"],
     quantity: 1,
     reviews: [
       {
@@ -98,7 +98,7 @@ export const products = [
     brandName: "CozyWear",
     description: "Warm and stylish hoodie for cold weather.",
     colors: ["Black", "Gray", "Navy"],
-    sizes: ["M", "L", "XL"],
+    sizes: ["Medium", "Large", "X-Large", "Small"],
     quantity: 1,
     reviews: [
       {
@@ -118,7 +118,7 @@ export const products = [
     brandName: "ActiveFit",
     description: "Stretchable and comfortable leggings for workouts.",
     colors: ["Black", "Pink", "Blue"],
-    sizes: ["S", "M", "L"],
+    sizes: ["X-Small", "Medium", "Large"],
     quantity: 1,
     reviews: [
       {
@@ -138,7 +138,7 @@ export const products = [
     brandName: "EliteWear",
     description: "Premium cotton formal shirt for office and events.",
     colors: ["White", "Blue", "Gray"],
-    sizes: ["M", "L", "XL", "XXL"],
+    sizes: ["Medium"],
     quantity: 1,
     reviews: [
       {

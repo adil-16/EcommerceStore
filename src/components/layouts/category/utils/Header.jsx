@@ -22,12 +22,8 @@ const Header = ({ openModal }) => {
               className="block w-full text-black"
               name="Select Account Type"
             >
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
-              <option>Option 3</option>
-              <option>Option 3</option>
-              <option>Option 3</option>
+              <option>Price</option>
+              <option>Ratings</option>
             </Select>
           </Field>
         </div>

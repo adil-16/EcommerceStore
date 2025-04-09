@@ -1,8 +1,11 @@
+"use client";
 import RoundedButton from "@/components/buttons/RoundedButton";
 import { stats } from "@/utils/Constants";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const HeroDetails = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-col w-full md:w-[50%] h-full sm:justify-center justify-start sm:gap-y-10 gap-y-6">
       <div className="flex flex-col sm:gap-y-6 gap-5">
@@ -16,7 +19,11 @@ const HeroDetails = () => {
         </p>
       </div>
       <div className="sm:w-[210px] w-full">
-        <RoundedButton label="Shop Now" className="py-4 text-white bg-primary border-primary" />
+        <RoundedButton
+          onClick={() => router.push("/new-arrival")}
+          label="Shop Now"
+          className="py-4 text-white bg-primary border-primary"
+        />
       </div>
 
       <div className="flex flex-row w-full md:gap-x-8 gap-x-6 gap-y-5 flex-wrap md:justify-start justify-center">

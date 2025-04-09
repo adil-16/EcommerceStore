@@ -4,7 +4,27 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 const SetupProfile = () => {
-  const [preview, setPreview] = useState("/images/profile-avatar.jpeg");
+  const [preview, setPreview] = useState("/images/user.png");
+  const [name, setName] = useState("Fareed Javed");
+  const [phone, setPhone] = useState("123 456 789");
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result); // base64 string
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+
+  const triggerUpload = () => {
+    document.getElementById("upload-button").click();
+  };
 
   return (
     <div className="w-full rounded-[12px] bg-white px-[24px] py-[40px] shadow-md">
@@ -12,7 +32,7 @@ const SetupProfile = () => {
         <div className="flex flex-col gap-3">
           <h1 className="text-2xl font-semibold">Profile Settings</h1>
           <p className="text-lg font-medium text-grayDark">
-            iamzaibi33@gmail.com
+            fareedjaved@ausrum.com
           </p>
         </div>
         <button className="rounded-[44px] bg-primary text-white px-[15px] py-[10px] text-base font-semibold md:px-[36.5px] md:py-[14px]">
@@ -30,6 +50,8 @@ const SetupProfile = () => {
                   id="hs-floating-input-email"
                   className="peer p-4 block w-full md:w-3/5 text-lg rounded-lg placeholder:text-transparent border border-slate-200 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
                   placeholder="Ahmed"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
                 <label
                   htmlFor="hs-floating-input-email"
@@ -47,6 +69,8 @@ const SetupProfile = () => {
                 id="hs-floating-input-email"
                 className="peer p-4 block w-full md:w-3/5 text-lg rounded-lg placeholder:text-transparent border border-slate-200 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
                 placeholder="123 456 789"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
               <label
                 htmlFor="hs-floating-input-email"
@@ -61,7 +85,7 @@ const SetupProfile = () => {
           <div className="relative">
             <Image
               className="h-[120px] w-[120px] rounded-xl object-cover"
-              src={preview}
+              src={preview || "/images/user.png"}
               width={500}
               height={500}
               alt="Profile Picuture"
@@ -69,11 +93,13 @@ const SetupProfile = () => {
             <div className="absolute -bottom-[10px] right-[10%] flex cursor-pointer items-center gap-[5px]">
               <div
                 // onClick={handleDivClick}
+                onClick={triggerUpload}
                 className={`cursor-pointer rounded-[6px] bg-white p-[6px] shadow-md`}
               >
                 {pencilIconProfile}
                 <input
                   id="upload-button"
+                  onChange={handleFileChange}
                   type="file"
                   accept="image/*"
                   className="hidden"

@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import EmailSuccessPopup from "@/components/progress/OrderProgressPopup";
-import { clearCart } from "@/store/slices/productSlice";
+import { placeOrder } from "@/store/slices/productSlice";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 
@@ -47,7 +47,7 @@ const OrderSummary = ({ step, setStep }) => {
     if (step === 1) {
       setStep(2);
     } else {
-      dispatch(clearCart());
+      dispatch(placeOrder());
       setIsSucessPopupOpen(true);
       setStep(1);
     }

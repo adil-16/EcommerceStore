@@ -12,7 +12,15 @@ import RoundedButton from "@/components/buttons/RoundedButton";
 
 const clothes = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"];
 
-const Filters = () => {
+const Filters = ({
+  priceRange,
+  setPriceRange,
+  selectedColor,
+  setSelectedColor,
+  selectedSize,
+  setSelectedSize,
+  onApply,
+}) => {
   const [value, setValue] = React.useState([20, 37]);
   return (
     <div className="flex-col w-[295px] sm:flex hidden py-5 px-6 border border-black border-opacity-10 rounded-[20px]">
@@ -22,18 +30,24 @@ const Filters = () => {
         {filterIcon}
       </div>
 
-      <ClothesFilter clothes={clothes} />
+      {/* <ClothesFilter clothes={clothes} /> */}
 
-      <PriceFilter value={value} setValue={setValue} />
+      <PriceFilter value={priceRange} setValue={setPriceRange} />
 
-      <ColorsFilter />
+      <ColorsFilter
+        selectedColor={selectedColor}
+        setSelectedColor={setSelectedColor}
+      />
+      <SizeFilter
+        selectedSize={selectedSize}
+        setSelectedSize={setSelectedSize}
+      />
 
-      <SizeFilter />
-
-      <StyleFilter />
+      {/* <StyleFilter /> */}
 
       <RoundedButton
         label="Apply Filter"
+        onClick={onApply}
         className=" bg-primary border-primary text-white font-medium w-full px-6 py-3.5"
       />
     </div>

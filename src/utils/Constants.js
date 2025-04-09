@@ -100,12 +100,8 @@ export const companyLinks = [
 
 export const helpLinks = [
   {
-    title: "Customer Support",
-    link: "/customer-support",
-  },
-  {
-    title: "Delivery Details",
-    link: "/delivery-details",
+    title: "Wishlist",
+    link: "/wishlist",
   },
   {
     title: "Terms & Conditions",
@@ -120,19 +116,15 @@ export const helpLinks = [
 export const faqLinks = [
   {
     title: "Account",
-    link: "/profile/account",
-  },
-  {
-    title: "Manage Deliveries",
-    link: "/manage-deliveries",
+    link: "/profile",
   },
   {
     title: "Orders",
-    link: "/profile/orders",
+    link: "/profile",
   },
   {
     title: "Payments",
-    link: "/profile/payments",
+    link: "/profile",
   },
 ];
 
@@ -144,4 +136,8 @@ export const cards = [
   GooglePayIcon,
 ];
 
-export const productTabs = ["Product Details", "Rating & Reviews", "Return Policy"];
+export const productTabs = [
+  "Product Details",
+  "Rating & Reviews",
+  "Return Policy",
+];

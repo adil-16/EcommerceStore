@@ -28,7 +28,11 @@ const GiveReview = ({ isOpen, closeModal }) => {
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-[7000000000000]" onClose={closeModal}>
+      <Dialog
+        as="div"
+        className="relative z-[7000000000000]"
+        onClose={closeModal}
+      >
         <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
@@ -41,7 +45,7 @@ const GiveReview = ({ isOpen, closeModal }) => {
           <div className="fixed inset-0 bg-black/25" />
         </TransitionChild>
 
-        <div className="fixed inset-0 overflow-y-auto">
+        <div className="fixed inset-0 overflow-y-auto no-scrollbar">
           <div className="flex min-h-full items-center justify-center px-4 text-center">
             <TransitionChild
               as={Fragment}
@@ -52,7 +56,7 @@ const GiveReview = ({ isOpen, closeModal }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="relative w-[505px] max-h-[600px] transform overflow-auto rounded-2xl bg-white px-1 pb-3.5 text-left align-middle shadow-xl transition-all">
+              <DialogPanel className="relative w-[505px] max-h-[600px] transform overflow-auto no-scrollbar rounded-2xl bg-white px-1 pb-3.5 text-left align-middle shadow-xl transition-all">
                 {/* header */}
                 <div className="sticky top-0 z-50 bg-white flex flex-row justify-between w-full items-center py-3.5 border-b border-b-black border-opacity-10 px-4">
                   <p className="font-medium text-xl">Write a review</p>

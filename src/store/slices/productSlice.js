@@ -6,6 +6,7 @@ const initialState = {
   cart: [],
   orders: [],
   selectedProduct: null,
+  selectedOrder: null,
 };
 
 const productSlice = createSlice({
@@ -134,6 +135,11 @@ const productSlice = createSlice({
         (order) => order.orderId !== action.payload
       );
     },
+    getOrderById: (state, action) => {
+      const id = action.payload;
+      const order = state.orders.find((o) => o.orderId === id);
+      state.selectedOrder = order || null;
+    },
   },
 });
 
@@ -148,6 +154,7 @@ export const {
   removeOrder,
   clearCart,
   toggleFavorite,
+  getOrderById,
 } = productSlice.actions;
 
 // Export reducer

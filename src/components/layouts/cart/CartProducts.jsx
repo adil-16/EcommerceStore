@@ -7,7 +7,7 @@ const CartProducts = ({ cart }) => {
       {cart.length > 0 ? (
         cart.map((item, index) => <CartProductCard key={index} item={item} />)
       ) : (
-        <p className="text-center text-gray-500">Your cart is empty.</p>
+        <p className="text-center text-red-600 text-xl">Your cart is empty!</p>
       )}
     </div>
   );

@@ -10,7 +10,7 @@ const OrderField = ({ onFilterChange }) => {
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
-          className="bg-grayFive text-grayThree block h-full w-full appearance-none rounded-lg bg-backgroundSecondary px-4 py-3 text-xs focus:border-grayTwo focus:ring-grayTwo"
+          className="bg-grayFive text-grayThree block h-full w-full appearance-none rounded-lg bg-backgroundSecondary px-4 py-3 text-xs focus:border-grayTwo focus:ring-grayTwo "
         >
           <option value="" className="text-base">
             Active order

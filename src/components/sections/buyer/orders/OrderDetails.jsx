@@ -1,14 +1,27 @@
 "use client";
 import GiveReview from "@/components/layouts/product/utils/GiveReview";
 import { chevronRightBlack, downloadIcon, progressBar } from "@/svgs";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getOrderById } from "@/store/slices/productSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-const OrderDetails = ({ setState }) => {
+const OrderDetails = ({ setState, orderId }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const selectedOrder = useSelector((state) => state.product.selectedOrder);
+
+  useEffect(() => {
+    if (orderId) {
+      dispatch(getOrderById(orderId));
+    }
+  }, [dispatch, orderId]);
 
   const handleOpenReview = () => {
     setIsOpen((state) => !state);
   };
+
+  if (!selectedOrder) return <div className="p-5">Loading Order...</div>;
 
   return (
     <div className="flex flex-col gap-5 w-full p-5">
@@ -21,12 +34,17 @@ const OrderDetails = ({ setState }) => {
               <div>
                 <img
                   className="w-[90px] h-[90px] object-cover rounded-[10px]"
-                  src="/images/order-avatar.jpeg"
+                  src={
+                    selectedOrder?.products[0]?.images[0] ||
+                    "/images/order-avatar.jpeg"
+                  }
                 />
               </div>
               <div className="flex flex-col gap-1 items-start">
-                <p className="font-medium">Order # 9254345</p>
-                <p className="text-sm">1 Skirt, 1 Gucci Bag, 1 Glasses</p>
+                <p className="font-medium">Order # {selectedOrder.orderId}</p>
+                <p className="text-sm">
+                  {selectedOrder.products.map((item) => item.title).join(", ")}
+                </p>
               </div>
             </div>
             <div className="flex flex-col items-center justify-between">
@@ -44,7 +62,7 @@ const OrderDetails = ({ setState }) => {
                   src="/images/profile-avatar.jpeg"
                   alt="User Profile Avatar"
                 />
-                <p className="font-semibold text-2xl">Harry Kane</p>
+                <p className="font-semibold text-2xl">Fareed Javed</p>
               </div>
               <div>{downloadIcon}</div>
             </div>

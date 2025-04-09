@@ -13,13 +13,13 @@ const Footer = () => {
       <div className="flex flex-col w-full lg:px-[100px] md:px-8 px-4 sm:pt-40 pt-52 sm:gap-y-8 gap-y-6">
         <div className="flex gap-y-4 flex-row w-full justify-between flex-wrap">
           <Col1 />
-          <ColWrapper title={"Company"} list={companyLinks} />
+          {/* <ColWrapper title={"Company"} list={companyLinks} /> */}
           <ColWrapper title={"Help"} list={helpLinks} />
           <ColWrapper title={"FAQ"} list={faqLinks} />
         </div>
 
         <div className="sm:py-6 py-4 flex flex-row sm:justify-between justify-center gap-x-2 flex-wrap border-t border-t-black border-opacity-10 items-center gap-y-[18px]">
-          <p className="opacity-60">Afriva © 2000-2023, All Rights Reserved</p>
+          <p className="opacity-60">Ausrum © 2000-2025, All Rights Reserved</p>
 
           <div className="flex flex-row gap-x-3">
             {cards.map((card, index) => (
