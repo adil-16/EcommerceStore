@@ -7,6 +7,12 @@ import CountUp from "react-countup";
 
 const HeroDetails = () => {
   const router = useRouter();
+  
+  const getNumericValue = (statString) => {
+    if (!statString) return 0;
+    return parseInt(statString.replace(/\D+/g, ''));
+  };
+
   return (
     <div className="flex flex-col w-full md:w-[50%] h-full sm:justify-center justify-start sm:gap-y-10 gap-y-6">
       <div className="flex flex-col sm:gap-y-6 gap-5">
@@ -28,32 +34,28 @@ const HeroDetails = () => {
       </div>
 
       <div className="flex flex-row w-full md:gap-x-8 gap-x-6 gap-y-5 flex-wrap md:justify-start justify-center">
-      {stats.map((stat, index) =>
-        stat.number === "" ? (
-          <div
-            className="w-0.5 border-r border-r-black border-opacity-10"
-            key={index}
-          />
-        ) : (
-          <div className="flex flex-col h-auto" key={index}>
-            <h2 className="sm:text-[40px] text-4xl font-bold">
-              <CountUp
-                start={0}
-                end={parseInt(stat.number.replace(",", "").replace("+", ""))}
-                duration={2.5}
-                separator=","
-                suffix={stat.number.includes("+") ? "+" : ""}
-              >
-                {({ countUpRef }) => (
-                  <span ref={countUpRef}></span>
-                )}
-              </CountUp>
-            </h2>
-            <p className="opacity-60">{stat.text}</p>
-          </div>
-        )
-      )}
-    </div>
+        {stats.map((stat, index) =>
+          stat.number === "" ? (
+            <div
+              className="w-0.5 border-r border-r-black border-opacity-10"
+              key={index}
+            />
+          ) : (
+            <div className="flex flex-col h-auto" key={index}>
+              <h2 className="sm:text-[40px] text-4xl font-bold">
+                <CountUp
+                  start={0}
+                  end={getNumericValue(stat.number)}
+                  duration={2.5}
+                  separator=","
+                  suffix={stat.number.includes("+") ? "+" : ""}
+                />
+              </h2>
+              <p className="opacity-60">{stat.text}</p>
+            </div>
+          )
+        )}
+      </div>
     </div>
   );
 };

@@ -7,8 +7,8 @@ import React from "react";
 const page = () => {
   return (
     <div className="flex flex-row w-full h-svh overflow-hidden relative">
-      <div className="flex flex-col h-full justify-center lg:px-14 md:px-8 px-7 w-full overflow-hidden">
-        <div className="flex">
+      <div className="flex flex-col h-full lg:px-14 md:px-8 px-7 w-full overflow-hidden">
+        <div className="flex p-4">
           <Image
             src="/images/logo.png"
             style={{
@@ -20,7 +20,7 @@ const page = () => {
             alt="Afriva-logo"
           />
         </div>
-        <div className="w-full flex justify-center mt-[250px]">
+        <div className="w-full flex justify-center items-center mt-10 lg:mt-0">
           <div className="lg:w-1/2 md:w-[70%] w-full text-center flex flex-col items-center">
             <div className="w-20 h-20 flex justify-center items-center rounded-full border-successButton border bg-white shadow-successShadow mb-6">
               {successIcon}
