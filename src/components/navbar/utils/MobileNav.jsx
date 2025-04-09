@@ -1,9 +1,21 @@
+"use client";
 import { closeNavIcon, navNextIcon } from "@/utils/Svgs";
 import Image from "next/image";
-import React from "react";
+import React, { use } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const MobileNav = ({ setOpen }) => {
+  const router= useRouter();
+
+  const handleArrivalClick = () => {
+    router.push("/new-arrival");
+    setOpen(false);
+  }
+  const handleBrandsClick = () => {
+    router.push("/brands");
+    setOpen(false);
+  }
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-white z-40">
       <div className=" shadow-mobileNavShadow bg-white flex flex-row w-full lg:px-[100px] md:px-8 px-4 pt-4 pb-3 items-center lg:gap-x-10 md:gap-x-7 gap-x-4 justify-between truncate">
@@ -30,23 +42,23 @@ const MobileNav = ({ setOpen }) => {
 
       <div className="flex flex-col items-center gap-y-8 mt-16">
         <div className="flex flex-row items-center gap-x-3 flex-nowrap">
-          <Link
-            href="/new-arrival"
+          <div
+            onClick={handleArrivalClick}
             className="flex items-center gap-x-3 flex-nowrap"
           >
             <p className="sm:text-3xl font-medium text-3xl">New Arrivals</p>
             {navNextIcon}
-          </Link>
+          </div>
         </div>
 
         <div className="flex flex-row items-center gap-x-3 flex-nowrap">
-          <Link
-            href="/brands"
+          <div
+           onClick={handleBrandsClick}
             className="flex items-center gap-x-3 flex-nowrap"
           >
             <p className="sm:text-3xl font-medium text-3xl">Brands</p>
             {navNextIcon}
-          </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -44,7 +44,7 @@ const Page = () => {
     <div className="flex w-full flex-col">
       <div className="h-[120px] w-full"></div>
 
-      <div className="flex h-auto w-full flex-col gap-y-10 overflow-visible px-5 pb-10 pt-12 lg:px-20">
+      <div className="flex h-auto w-full flex-col gap-y-10 overflow-visible px-5 pb-10 md:pt-12 lg:px-20">
         <div className="flex items-center gap-[20px]">
           <h1 className="my-2 text-4xl font-bold">My Profile</h1>
         </div>

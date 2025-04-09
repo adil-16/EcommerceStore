@@ -13,7 +13,7 @@ const DeleteAccount = () => {
       <div className="flex flex-col gap-[10px]">
         <h1 className="text-2xl font-semibold">Delete Account</h1>
         <div className="flex w-full items-center justify-between">
-          <div className="font-semibold">
+          <div className="">
             It’ll permanently delete your account from Afriva.
           </div>
 

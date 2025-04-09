@@ -9,7 +9,7 @@ import ProductsWrappers from "../homepage/ProductsWrappers";
 const OtherDetails = ({ product }) => {
   const [selectedTab, setSelectedTab] = React.useState(0);
   return (
-    <div className="w-full sm:mt-20 mt-12">
+    <div className="w-full sm:mt-20 mt-12" style={{ userSelect: 'none' }} >
       <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
 
       {selectedTab === 0 && <DetailTab />}

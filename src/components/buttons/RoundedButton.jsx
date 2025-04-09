@@ -12,6 +12,7 @@ const RoundedButton = (props) => {
       type={props.type}
       ref={ref}
       className={`relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full border transition-opacity duration-300 ease-in hover:opacity-85 ${props.className} shadow-buttonShadow`}
+      style={{ userSelect: 'none' }} 
     >
       {ripple}
 

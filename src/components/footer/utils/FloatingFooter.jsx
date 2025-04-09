@@ -12,14 +12,15 @@ const FloatingFooter = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col lg:w-[30%] sm:w-[40%] w-full gap-y-3.5">
-          <SubscribeField />
+        <div className="flex flex-row lg:w-[35%] sm:w-[40%] w-full gap-x-3.5">
+  <SubscribeField className="flex-grow" /> 
+  
+  <RoundedButton
+    label="Subscribe"
+    className="py-3 bg-white text- border-black border-opacity-10 w-[30%]"  
+  />
+</div>
 
-          <RoundedButton
-            label="Subscribe to Newsletter"
-            className="py-3 bg-white text- border-black border-opacity-10 w-full"
-          />
-        </div>
       </div>
     </div>
   );

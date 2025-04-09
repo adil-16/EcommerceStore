@@ -9,14 +9,22 @@ import { products } from "@/utils/products";
 
 const ProductList = ({ appliedFilters }) => {
   const [filteredProducts, setFilteredProducts] = useState(products);
+  const [sortedProducts, setSortedProducts] = useState(products);
   const [isOpen, setIsOpen] = useState(false);
   const [totalProducts, setTotalProducts] = useState(100);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage] = useState(9);
+  const [sortOption, setSortOption] = useState("Select");
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  const handleSortChange = (option) => {
+    setSortOption(option);
+    setCurrentPage(1); 
+  };
+
   useEffect(() => {
     let updated = products;
     const { selectedColor, selectedSize } = appliedFilters;
@@ -50,13 +58,28 @@ const ProductList = ({ appliedFilters }) => {
     setFilteredProducts(updated);
   }, [appliedFilters, products]);
 
+  useEffect(() => {
+    let sorted = [...filteredProducts];
+    
+    if (sortOption === "Price") {
+      sorted.sort((a, b) => a.price - b.price); // Ascending price
+    } else if (sortOption === "Ratings") {
+      sorted.sort((a, b) => b.ratings - a.ratings); // Descending ratings
+    }
+    
+    setSortedProducts(sorted);
+  }, [filteredProducts, sortOption]);
+
   const indexOfLast = currentPage * perPage;
   const indexOfFirst = indexOfLast - perPage;
-  const currentProducts = filteredProducts.slice(indexOfFirst, indexOfLast);
+  const currentProducts = sortedProducts.slice(indexOfFirst, indexOfLast);
 
   return (
     <div className="flex flex-row sm:w-[calc(100%-200px)] w-full flex-wrap gap-x-6 justify-between gap-y-6">
-      <Header openModal={() => setIsOpen(true)} />
+    <Header 
+        openModal={() => setIsOpen(true)} 
+        onSortChange={handleSortChange}
+      />
 
       <div className="flex flex-row w-full flex-wrap gap-x-6 justify-start gap-y-6">
         {currentProducts.length ? (

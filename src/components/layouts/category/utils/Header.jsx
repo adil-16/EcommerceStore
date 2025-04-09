@@ -3,8 +3,14 @@ import { Field, Select } from "@headlessui/react";
 import React from "react";
 import ShowFilterButton from "./ShowFilterButton";
 
-const Header = ({ openModal }) => {
-  const [value, setValue] = React.useState("Option 1");
+const Header = ({ openModal, onSortChange }) => {
+  const [value, setValue] = React.useState("Select");
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    onSortChange(e.target.value);
+  };
+
   return (
     <div className="flex flex-row items-center justify-between gap-1 flex-wrap w-full">
       <p className="font-bold text-3xl">Casual</p>
@@ -17,11 +23,12 @@ const Header = ({ openModal }) => {
 
           <Field>
             <Select
-              onChange={(e) => setValue(e.target.value)}
+              onChange={handleChange}
               value={value}
               className="block w-full text-black"
               name="Select Account Type"
             >
+              <option>Select</option>
               <option>Price</option>
               <option>Ratings</option>
             </Select>

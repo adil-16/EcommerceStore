@@ -3,6 +3,7 @@ import RoundedButton from "@/components/buttons/RoundedButton";
 import { stats } from "@/utils/Constants";
 import React from "react";
 import { useRouter } from "next/navigation";
+import CountUp from "react-countup";
 
 const HeroDetails = () => {
   const router = useRouter();
@@ -27,24 +28,32 @@ const HeroDetails = () => {
       </div>
 
       <div className="flex flex-row w-full md:gap-x-8 gap-x-6 gap-y-5 flex-wrap md:justify-start justify-center">
-        {stats.map((stat, index) =>
-          stat.number === "" ? (
-            <div
-              className="w-0.5 border-r border-r-black border-opacity-10"
-              key={index}
-            >
-              {" "}
-            </div>
-          ) : (
-            <div className="flex flex-col h-auto" key={index}>
-              <h2 className="sm:text-[40px] text-4xl font-bold">
-                {stat.number}
-              </h2>
-              <p className="opacity-60">{stat.text}</p>
-            </div>
-          )
-        )}
-      </div>
+      {stats.map((stat, index) =>
+        stat.number === "" ? (
+          <div
+            className="w-0.5 border-r border-r-black border-opacity-10"
+            key={index}
+          />
+        ) : (
+          <div className="flex flex-col h-auto" key={index}>
+            <h2 className="sm:text-[40px] text-4xl font-bold">
+              <CountUp
+                start={0}
+                end={parseInt(stat.number.replace(",", "").replace("+", ""))}
+                duration={2.5}
+                separator=","
+                suffix={stat.number.includes("+") ? "+" : ""}
+              >
+                {({ countUpRef }) => (
+                  <span ref={countUpRef}></span>
+                )}
+              </CountUp>
+            </h2>
+            <p className="opacity-60">{stat.text}</p>
+          </div>
+        )
+      )}
+    </div>
     </div>
   );
 };

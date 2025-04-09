@@ -6,9 +6,14 @@ import RoundedButton from "@/components/buttons/RoundedButton";
 import GiveReview from "./GiveReview";
 import ReviewCard from "../../homepage/utils/ReviewCard";
 import ProductsWrappers from "../../homepage/ProductsWrappers";
+import { useState } from "react";
 
 const ReviewTab = ({ product }) => {
   const [openModal, setOpenModal] = React.useState(false);
+  const [showAllReviews, setShowAllReviews] = useState(false); // State to toggle reviews visibility
+
+  // Initially show 4 reviews
+  const reviewsToShow = showAllReviews ? product.reviews : product.reviews.slice(0, 4);
   return (
     <div className="w-full flex flex-col sm:mt-7 mt-9 ">
       <div className="flex flex-row gap-x-1 justify-between w-full">
@@ -22,13 +27,13 @@ const ReviewTab = ({ product }) => {
           <RoundedButton
             onClick={() => setOpenModal(true)}
             label="Write a Review"
-            className=" bg-black border-black text-white font-medium w-full px-6 py-3.5"
+            className=" bg-black border-black text-white font-medium w-full px-6 whitespace-nowrap py-2 rounded-lg"
           />
         </div>
       </div>
       {/* grid for 2 col and on mobile 1 col */}
       <div className="grid grid-cols-1 gap-4 sm:mt-7 mt-5 sm:grid-cols-2">
-        {product.reviews.map((review, index) => (
+      {reviewsToShow.map((review, index) => (
           <ReviewCard
             key={index}
             user={review.user}
@@ -38,12 +43,15 @@ const ReviewTab = ({ product }) => {
         ))}
       </div>
 
-      <div className="w-full flex justify-center sm:mt-11 mt-5 sm:mb-16 mb-12">
-        <RoundedButton
-          label="Load More Reviews"
-          className="py-4 bg-white text- border-black border-opacity-10 sm:w-[218px] w-full"
-        />
-      </div>
+      {!showAllReviews && product.reviews.length > 4 && (
+        <div className="w-full flex justify-center sm:mt-11 mt-5 sm:mb-16 mb-12">
+          <RoundedButton
+            onClick={() => setShowAllReviews(true)} 
+            label="Load More Reviews"
+            className="py-4 bg-white text-black border-black border-opacity-10 sm:w-[218px] w-full"
+          />
+        </div>
+      )}
       <GiveReview isOpen={openModal} closeModal={() => setOpenModal(false)} />
     </div>
   );

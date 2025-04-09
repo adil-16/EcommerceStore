@@ -11,7 +11,7 @@ const UpdatePassword = () => {
     <div className="w-full rounded-[12px] bg-white px-[24px] py-[40px] shadow-md">
       <div className="flex flex-col gap-[10px]">
         <h1 className="text-2xl font-semibold">Update Password</h1>
-        <p className="my-3 font-semibold">
+        <p className="my-3">
           {updatePassword
             ? "Enter new password"
             : "Please enter your old password."}

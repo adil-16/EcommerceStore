@@ -4,8 +4,13 @@ import ReviewCard from "./ReviewCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSelector } from "react-redux";
 
 const ReviewsSlider = ({ sliderRef }) => {
+  const products = useSelector((state) => state.product.products); 
+
+  const reviews = products.flatMap((product) => product.reviews);
+
   const settings = {
     className: "center",
     centerMode: true,
@@ -66,13 +71,19 @@ const ReviewsSlider = ({ sliderRef }) => {
   return (
     <div className="slider-container overflow-hidden">
       <Slider {...settings} id="slider-2" ref={sliderRef}>
-        <ReviewCard className={'sm:w-[400px] w-[300px]'}/>
-        <ReviewCard className={'sm:w-[400px] w-[300px]'}/>
-        <ReviewCard className={'sm:w-[400px] w-[300px]'}/>
-        <ReviewCard className={'sm:w-[400px] w-[300px]'}/>
-        <ReviewCard className={'sm:w-[400px] w-[300px]'}/>
-        <ReviewCard className={'sm:w-[400px] w-[300px]'}/>
-        <ReviewCard className={'sm:w-[400px] w-[300px]'}/>
+        {reviews.length > 0 ? (
+          reviews.map((review, index) => (
+            <ReviewCard
+              key={index} 
+              user={review.user}
+              comment={review.comment}
+              rating={review.rating}
+              className={"sm:w-[400px] w-[300px]"}
+            />
+          ))
+        ) : (
+          <p>No reviews available</p>
+        )}
       </Slider>
     </div>
   );
