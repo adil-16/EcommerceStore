@@ -6,7 +6,7 @@ import React from "react";
 import { products } from "@/utils/products";
 import { useState } from "react";
 
-const page = ({ viewAll = true }) => {
+const Page = ({ viewAll = true }) => {
   const [showAll, setShowAll] = useState(false);
 
   const handleViewAll = () => {
@@ -43,4 +43,4 @@ const page = ({ viewAll = true }) => {
   );
 };
 
-export default page;
+export default Page;
