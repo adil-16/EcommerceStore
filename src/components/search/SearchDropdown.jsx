@@ -1,11 +1,12 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const Dropdown = ({ products, setSearch }) => {
+const Dropdown = ({ products, setSearch, setOpen }) => {
   const router = useRouter();
 
   const handleClick = (productId) => {
     setSearch("");
+    setOpen(false)
     router.push(`/product/${productId}`);
   };
 
