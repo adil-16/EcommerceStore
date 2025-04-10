@@ -8,7 +8,7 @@ const page = () => {
       <div className="flex flex-col h-full justify-center lg:px-14 md:px-8 px-7 w-full">
         <div className="flex flex-col gap-y-14 pb-8">
           <Image
-            src="/images/logo.png"
+            src="/ausrum.png"
             style={{
               width: "161px",
               height: "auto",

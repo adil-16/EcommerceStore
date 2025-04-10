@@ -8,7 +8,7 @@ const ForgotOverview = ({ step }) => {
     <div className="flex flex-col h-full justify-center lg:px-14 md:px-8 px-7 lg:w-[30%] md:w-[45%] w-full bg-secondaryBg">
       <div className="flex flex-col gap-y-14 pb-8 h-full py-11">
         <Image
-          src="/images/logo.png"
+          src="/ausrum.png"
           style={{
             width: "161px",
             height: "auto",

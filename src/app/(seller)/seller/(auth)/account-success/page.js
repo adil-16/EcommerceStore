@@ -6,7 +6,7 @@ import Link from "next/link";
 const Page = () => {
   return (
     <div className="mx-auto p-5 lg:px-16 flex flex-col gap-5 text-center">
-      <img className="w-[160px] h-[60px]" src="/images/logo.png" />
+      <img className="w-[160px] h-[60px]" src="/ausrum.png" />
       <h3 className="text-3xl font-bold">Account Successfully Created! 🎉</h3>
       <p className="text-grayDark text-lg">
         Welcome to Afriva – Your shopping experience just got better!

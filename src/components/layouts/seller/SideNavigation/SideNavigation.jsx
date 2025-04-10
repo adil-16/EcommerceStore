@@ -90,7 +90,7 @@ const Navbar = ({ toggleNavbar, isNavbarOpen }) => {
           <div className="flex text-center lg:mx-5 mx-2 text-[36px] font-bold justify-between">
             <img
               className="h-auto w-[50%] cursor-pointer"
-              src="/images/logo.png"
+              src="/ausrum.png"
               alt="Logo"
             />
 

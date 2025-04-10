@@ -10,7 +10,7 @@ const page = () => {
       <div className="flex flex-col h-full lg:px-14 md:px-8 px-7 w-full overflow-hidden">
         <div className="flex p-4">
           <Image
-            src="/images/logo.png"
+            src="/ausrum.png"
             style={{
               width: "161px",
               height: "auto",

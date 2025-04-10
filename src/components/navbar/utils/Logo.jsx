@@ -13,7 +13,7 @@ const Logo = ({ open, setOpen }) => {
       >
         <Image
           layout="responsive"
-          src="/images/logo.png"
+          src="/ausrum.png"
           className="cursor-pointer w-[161px] h-auto"
           width={161}
           height={59}

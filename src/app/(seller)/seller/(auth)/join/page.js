@@ -14,7 +14,7 @@ const Page = () => {
 
   return (
     <div className="mx-auto p-5 lg:px-16 flex flex-col gap-5">
-      <img className="w-[160px] h-[60px]" src="/images/logo.png" />
+      <img className="w-[160px] h-[60px]" src="/ausrum.png" />
       <h3 className="text-3xl font-bold">Admin Invitation to Create Account</h3>
       <p className="text-grayDark text-lg">
         You`&apos;ve received a request from the admin to create your seller
