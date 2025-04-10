@@ -5,8 +5,11 @@ const Dropdown = ({ products, setSearch, setOpen }) => {
   const router = useRouter();
 
   const handleClick = (productId) => {
+    console.log("abc");
     setSearch("");
-    setOpen(false)
+    if (setOpen) {
+      setOpen(false);
+    }
     router.push(`/product/${productId}`);
   };
 

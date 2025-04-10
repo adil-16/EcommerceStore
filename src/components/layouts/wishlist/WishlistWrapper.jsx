@@ -15,8 +15,6 @@ const WishlistWrapper = () => {
   const products = useSelector((state) => state.product.products);
   const favoriteProducts = products.filter((product) => product.isFav);
 
-  
-
   useEffect(() => {
     const favoriteProductsCount = products.filter(
       (product) => product.isFav
